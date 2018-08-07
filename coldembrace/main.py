@@ -16,29 +16,44 @@ the_jinja_env = jinja2.Environment(
     autoescape=True)
     
     
-class AboutPage(webapp2.RequestHandler):
+class HomePage(webapp2.RequestHandler):
     def get(self):
-        about_template = the_jinja_env.get_template('templates/about.html')
-        self.response.write(about_template.render())
+        about_template = the_jinja_env.get_template('templates/index.html')
+        self.response.write("This is the home page")
    
-
-
-class ContactPage(webapp2.RequestHandler):
-    def get(self):
-        about_template = the_jinja_env.get_template('templates/contact.html')
-        self.response.write(about_template.render())
-        
-        
+    '''
     def post(self):
         isError = False
         if (isError):
             self.response.write("Error!")
         else:
             self.redirect("/")
+    '''
+    
+class SurveyPage(webapp2.RequestHandler):
+    def get(self):
+        name_generator_url = "https://www.behindthename.com/api/random.json?number=6&randomsurname=yes&key=da143179294"
+        randomName= urlfetch.fetch(name_generator_url).content
+        nameOfGhost = json.loads(randomName)
+        self.response.write(nameOfGhost)
+        
+        the_variable_dict = {
+            "name": nameOfGhost
+        }
+        survey_template = the_jinja_env.get_template("templates/survey.html")
+        self.response.write(survey_template.render(the_variable_dict))
+
+
+        
+class ResultsPage(webapp2.RequestHandler):
+    def get(self):
+        #about_template = the_jinja_env.get_template('templates/index.html')
+        self.response.write("This is the results page")        
 
 
 
 app = webapp2.WSGIApplication([
-    ('/', AboutPage),
-    ('/contact', ContactPage),
+    ('/', HomePage),
+    ('/survey', SurveyPage),
+    ('/results', ResultsPage),
 ], debug=True)
