@@ -39,7 +39,8 @@ class SurveyPage(webapp2.RequestHandler):
         the_variable_dict = {
             "name": nameOfGhost
         }
-        self.response.write(game_template.render(the_variable_dict))
+        survey_template = the_jinja_env.get_template("templates/survey.html")
+        self.response.write(survey_template.render(the_variable_dict))
 
 
         
