@@ -17,27 +17,41 @@ the_jinja_env = jinja2.Environment(
     
 class HomePage(webapp2.RequestHandler):
     def get(self):
-        about_template = the_jinja_env.get_template('templates/about.html')
-        self.response.write(about_template.render())
+        about_template = the_jinja_env.get_template('templates/index.html')
+        self.response.write("This is the home page")
    
 
 
-class ContactPage(webapp2.RequestHandler):
+class LoginPage(webapp2.RequestHandler):
     def get(self):
-        about_template = the_jinja_env.get_template('templates/contact.html')
-        self.response.write(about_template.render())
+        #about_template = the_jinja_env.get_template('templates/index.html')
+        self.response.write("This is the login page")
         
         
+    '''
     def post(self):
         isError = False
         if (isError):
             self.response.write("Error!")
         else:
             self.redirect("/")
+    '''
+    
+class SurveyPage(webapp2.RequestHandler):
+    def get(self):
+       # about_template = the_jinja_env.get_template('templates/index.html')
+        self.response.write("This is the survey page")
+        
+class ResultsPage(webapp2.RequestHandler):
+    def get(self):
+        #about_template = the_jinja_env.get_template('templates/index.html')
+        self.response.write("This is the results page")        
 
 
 
 app = webapp2.WSGIApplication([
     ('/', HomePage),
-    ('/contact', ContactPage),
+    ('/login', LoginPage),
+    ('/survey', SurveyPage),
+    ('/results', ResultsPage),
 ], debug=True)
