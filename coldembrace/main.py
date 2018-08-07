@@ -6,7 +6,7 @@ import os
 
 #libraries for APIs
 from google.appengine.api import urlfetch
-import json
+import json # Javascript Object Notation
 
 
 the_jinja_env = jinja2.Environment(
@@ -41,3 +41,5 @@ app = webapp2.WSGIApplication([
     ('/', HomePage),
     ('/contact', ContactPage),
 ], debug=True)
+
+
