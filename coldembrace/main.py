@@ -20,14 +20,6 @@ class HomePage(webapp2.RequestHandler):
         about_template = the_jinja_env.get_template('templates/index.html')
         self.response.write("This is the home page")
    
-
-
-class LoginPage(webapp2.RequestHandler):
-    def get(self):
-        #about_template = the_jinja_env.get_template('templates/index.html')
-        self.response.write("This is the login page")
-        
-        
     '''
     def post(self):
         isError = False
@@ -39,8 +31,17 @@ class LoginPage(webapp2.RequestHandler):
     
 class SurveyPage(webapp2.RequestHandler):
     def get(self):
-       # about_template = the_jinja_env.get_template('templates/index.html')
-        self.response.write("This is the survey page")
+        name_generator_url = "https://www.behindthename.com/api/random.json?number=6&randomsurname=yes&key=da143179294"
+        randomName= urlfetch.fetch(name_generator_url).content
+        nameOfGhost = json.loads(randomName)
+        self.response.write(nameOfGhost)
+        
+        the_variable_dict = {
+            "name": nameOfGhost
+        }
+        self.response.write(game_template.render(the_variable_dict))
+
+
         
 class ResultsPage(webapp2.RequestHandler):
     def get(self):
@@ -51,7 +52,6 @@ class ResultsPage(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', HomePage),
-    ('/login', LoginPage),
     ('/survey', SurveyPage),
     ('/results', ResultsPage),
 ], debug=True)
