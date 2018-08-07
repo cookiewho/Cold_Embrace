@@ -2,7 +2,8 @@ import webapp2
 from random import shuffle
 import jinja2
 import os
-
+from models import current_user
+from models import other_user
 
 #libraries for APIs
 from google.appengine.api import urlfetch
