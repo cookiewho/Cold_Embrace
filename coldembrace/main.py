@@ -15,8 +15,13 @@ the_jinja_env = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
     
+<<<<<<< HEAD
 def run_query(first_line, second_line,):
     other_user_input = other_user(line1=first_line, line2 = second_line, img_choi)
+=======
+def run_query(first_line, second_line, pic_type):
+    c_user = current_user(line1=first_line, line2 = second_line, img_choice = pic_type)
+>>>>>>> 0ed3c7e97c42ac4b882284e3f60df6b9f7c28215
     meme_key = meme.put()
     print("&&&&&&&&&&&&&&&&&&&&&&&&&")
     print meme_key
@@ -26,7 +31,7 @@ class HomePage(webapp2.RequestHandler):
     def get(self):
         about_template = the_jinja_env.get_template('templates/index.html')
         self.response.write("This is the home page")
-   
+        
     '''
     def post(self):
         isError = False
@@ -48,7 +53,6 @@ class SurveyPage(webapp2.RequestHandler):
         }
         survey_template = the_jinja_env.get_template("templates/survey.html")
         self.response.write(survey_template.render(the_variable_dict))
-
 
         
 class ResultsPage(webapp2.RequestHandler):
