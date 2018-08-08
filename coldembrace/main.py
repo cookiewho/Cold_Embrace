@@ -15,13 +15,11 @@ the_jinja_env = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
     
-def run_query(first_line, second_line,):
-    other_user_input = other_user(line1=first_line, line2 = second_line, img_choi)
-def run_query(first_line, second_line, pic_type):
-    c_user = current_user(line1=first_line, line2 = second_line, img_choice = pic_type)
-    meme_key = meme.put()
+def run_query(first_line, second_line, third_line, fourth_line, fifth_line, sixth_line, seventh_line, eighth_line, ninth_line):
+    c_user = current_user(line1=first_line, line2=second_line, line3=third_line, line4=fourth_line, line5=fifth_line, line6=sixth_line, line7=seventh_line)
+    current_user_input= current_user.put()
     print("&&&&&&&&&&&&&&&&&&&&&&&&&")
-    print meme_key
+    print current_user_input
 
     
 class HomePage(webapp2.RequestHandler):
