@@ -36,4 +36,3 @@ class other_user6(ndb.Model):
 class other_user7(ndb.Model):
     line8 = ndb.StringProperty(required=True)
     line9 = ndb.StringProperty(required=True)
-
