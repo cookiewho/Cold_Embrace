@@ -40,6 +40,14 @@ class SurveyPage(webapp2.RequestHandler):
     def get(self):
         survey_template = the_jinja_env.get_template("templates/survey.html")
         self.response.write(survey_template.render)
+    
+    def post(self):
+        survey_template = the_jinja_env.get_template('templates/survey.html')
+        user_fname = self.request.get('fname')
+        user_lname = self.request.get('lname')
+        user_ybirth = self.request.get('ybirth')
+        user_rebirth = self.request.get('yrebirth')
+        user_sex = self.request.get('sex')
 
         
 class ResultsPage(webapp2.RequestHandler):
