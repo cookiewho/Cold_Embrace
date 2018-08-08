@@ -2,7 +2,8 @@ import webapp2
 from random import shuffle
 import jinja2
 import os
-
+from models import current_user
+from models import other_user
 
 #libraries for APIs
 from google.appengine.api import urlfetch
@@ -14,10 +15,13 @@ the_jinja_env = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
     
-#def login_query(user_name, pass_word):
-    #userinfo = userinfo(username = user_name, password = pass_word)
+def run_query(first_line, second_line, pic_type):
+    c_user = current_user(line1=first_line, line2 = second_line, img_choice = pic_type)
+    meme_key = meme.put()
+    print("&&&&&&&&&&&&&&&&&&&&&&&&&")
+    print meme_key
 
-
+    
 class HomePage(webapp2.RequestHandler):
     def get(self):
         about_template = the_jinja_env.get_template('templates/index.html')
