@@ -7,7 +7,7 @@ from models import other_user
 
 #libraries for APIs
 from google.appengine.api import urlfetch
-import json
+import json # Javascript Object Notation
 
 
 the_jinja_env = jinja2.Environment(

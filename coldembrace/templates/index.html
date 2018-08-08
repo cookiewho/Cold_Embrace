@@ -3,11 +3,36 @@
     <head>
         <title>Cold Embrace<title>
         <link rel="stylesheet" href="css/style.css">    
-        
-        
-        
     </head>
     <body>
         
+        <form method=POST action="/tellme">
+            First Name:
+                <br>
+            <input type="text" name="fname" value="First Name">
+                <br>
+            Last Name:
+                <br>
+            <input type="text" name="lname" value="Last Name">
+                <br>
+            Year Of Birth:
+                <br>
+            <input type="text" name="ybirth" value="Birth Year">
+                <br>
+            Year Of Re-Birth:
+                <br>
+            <input type="text" name="yrebirth" value="Death Year">
+                <br>
+            Sex:
+                <br>
+                <select name="sex">
+                    <option value="Male"></option>
+                    <option value="Female"></option>
+                    <option value="Fluid Specter"></option>
+                    <option value=>"Geist Kin"</option>
+                    <option value="Other"></option>
+                </select>
+            <input type="submit" value="Go!">
+        </form>
     </body>
 </html>
