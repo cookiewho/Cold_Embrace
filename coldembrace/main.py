@@ -3,7 +3,7 @@ from random import shuffle
 import jinja2
 import os
 from models import current_user
-from models import other_user
+from models import other_user1
 
 #libraries for APIs
 from google.appengine.api import urlfetch
@@ -17,15 +17,15 @@ the_jinja_env = jinja2.Environment(
     
 def run_query(first_line, second_line, third_line, fourth_line, fifth_line, sixth_line, seventh_line, eighth_line, ninth_line):
     c_user = current_user(line1=first_line, line2=second_line, line3=third_line, line4=fourth_line, line5=fifth_line, line6=sixth_line, line7=seventh_line)
-    current_user_input= current_user.put()
+    current_user_input= c_user.put()
     print("&&&&&&&&&&&&&&&&&&&&&&&&&")
     print current_user_input
 
     
 class HomePage(webapp2.RequestHandler):
     def get(self):
-        about_template = the_jinja_env.get_template('templates/index.html')
-        self.response.write("This is the home page")
+        home_template = the_jinja_env.get_template('templates/index.html')
+        self.response.write(home_template.render)
         
     '''
     def post(self):
@@ -38,6 +38,17 @@ class HomePage(webapp2.RequestHandler):
     
 class SurveyPage(webapp2.RequestHandler):
     def get(self):
+        survey_template = the_jinja_env.get_template("templates/survey.html")
+        self.response.write(survey_template.render)
+
+        
+class ResultsPage(webapp2.RequestHandler):
+    def get(self):
+        #about_template = the_jinja_env.get_template('templates/index.html')
+        self.response.write("This is the results page")
+        
+class MatchPage(webapp2.RequestHandler):
+    def get(self):
         name_generator_url = "https://www.behindthename.com/api/random.json?number=6&randomsurname=yes&key=da143179294"
         randomName= urlfetch.fetch(name_generator_url).content
         nameOfGhost = json.loads(randomName)
@@ -46,14 +57,8 @@ class SurveyPage(webapp2.RequestHandler):
         the_variable_dict = {
             "name": nameOfGhost
         }
-        survey_template = the_jinja_env.get_template("templates/survey.html")
-        self.response.write(survey_template.render(the_variable_dict))
-
-        
-class ResultsPage(webapp2.RequestHandler):
-    def get(self):
-        #about_template = the_jinja_env.get_template('templates/index.html')
-        self.response.write("This is the results page")        
+        match_template = the_jinja_env.get_template("templates/match.html")
+        self.response.write(match_template.render(the_variable_dict))
 
 
 
@@ -61,4 +66,5 @@ app = webapp2.WSGIApplication([
     ('/', HomePage),
     ('/survey', SurveyPage),
     ('/results', ResultsPage),
+    ('/match', ResultsPage),
 ], debug=True)
