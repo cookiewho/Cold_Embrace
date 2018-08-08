@@ -15,6 +15,12 @@ the_jinja_env = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
     
+    def run_query(first_line, second_line, pic_type):
+    c_user = current_user(line1=first_line, line2 = second_line, img_choice = pic_type)
+    meme_key = meme.put()
+    print("&&&&&&&&&&&&&&&&&&&&&&&&&")
+    print meme_key
+
     
 class HomePage(webapp2.RequestHandler):
     def get(self):
