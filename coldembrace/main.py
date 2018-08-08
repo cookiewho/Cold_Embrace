@@ -74,5 +74,5 @@ app = webapp2.WSGIApplication([
     ('/', HomePage),
     ('/survey', SurveyPage),
     ('/results', ResultsPage),
-    ('/match', ResultsPage),
+    ('/match', MatchPage),
 ], debug=True)
