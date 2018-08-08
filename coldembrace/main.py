@@ -22,11 +22,7 @@ class HomePage(webapp2.RequestHandler):
     def get(self):
         about_template = the_jinja_env.get_template('templates/index.html')
         self.response.write("This is the home page")
-<<<<<<< HEAD
         
-=======
-   
->>>>>>> 2735cec8363790274892cc82ef20e11a3c87f8f2
     '''
     def post(self):
         isError = False
@@ -48,11 +44,7 @@ class SurveyPage(webapp2.RequestHandler):
         }
         survey_template = the_jinja_env.get_template("templates/survey.html")
         self.response.write(survey_template.render(the_variable_dict))
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 2735cec8363790274892cc82ef20e11a3c87f8f2
         
 class ResultsPage(webapp2.RequestHandler):
     def get(self):
