@@ -7,7 +7,7 @@ from models import other_user
 
 #libraries for APIs
 from google.appengine.api import urlfetch
-import json # Javascript Object Notation
+import json
 
 
 the_jinja_env = jinja2.Environment(
@@ -15,8 +15,8 @@ the_jinja_env = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
     
-    def run_query(first_line, second_line, pic_type):
-    c_user = current_user(line1=first_line, line2 = second_line, img_choice = pic_type)
+def run_query(first_line, second_line,):
+    other_user_input = other_user(line1=first_line, line2 = second_line, img_choi)
     meme_key = meme.put()
     print("&&&&&&&&&&&&&&&&&&&&&&&&&")
     print meme_key
