@@ -77,7 +77,7 @@ class ResultsPage(webapp2.RequestHandler):
 class MatchPage(webapp2.RequestHandler):
     def get(self):
         #about_template = the_jinja_env.get_template('templates/index.html')
-        self.response.write("This is the results page")
+        self.response.write("This is the match page")
 
 
 
