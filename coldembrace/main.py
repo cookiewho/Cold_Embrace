@@ -47,7 +47,7 @@ class SurveyPage(webapp2.RequestHandler):
         user_lname = self.request.get('lname')
         user_ybirth = self.request.get('ybirth')
         user_rebirth = self.request.get('yrebirth')
-        user_sex = self.request.get('sex')
+        user_sex = self.request.get('u_sex')
         
         run_query(user_fname, user_lname, user_ybirth, user_rebirth, user_sex)
         
@@ -56,18 +56,13 @@ class SurveyPage(webapp2.RequestHandler):
             'laname' : user_lname,
             'birthy' : user_ybirth,
             'rebirthy' : user_rebirth,
-            'u_sex' : user_sex
+            'sex' : user_sex
         }
-        self.redirect('/match')
+        self.redirect('/results')
 
         
 class ResultsPage(webapp2.RequestHandler):
-    def get(self):
-        #about_template = the_jinja_env.get_template('templates/index.html')
-        self.response.write("This is the results page")
-        
-class MatchPage(webapp2.RequestHandler):
-    def get(self):
+     def get(self):
         name_generator_url = "https://www.behindthename.com/api/random.json?number=6&randomsurname=yes&key=da143179294"
         randomName= urlfetch.fetch(name_generator_url).content
         nameOfGhost = json.loads(randomName)
@@ -76,8 +71,13 @@ class MatchPage(webapp2.RequestHandler):
         the_variable_dict = {
             "name": nameOfGhost
         }
-        match_template = the_jinja_env.get_template("templates/match.html")
-        self.response.write(match_template.render(the_variable_dict))
+        results_template = the_jinja_env.get_template("templates/results.html")
+        self.response.write(results_template.render(the_variable_dict))
+        
+class MatchPage(webapp2.RequestHandler):
+    def get(self):
+        #about_template = the_jinja_env.get_template('templates/index.html')
+        self.response.write("This is the match page")
 
 
 
