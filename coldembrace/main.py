@@ -47,7 +47,7 @@ class SurveyPage(webapp2.RequestHandler):
         user_lname = self.request.get('lname')
         user_ybirth = self.request.get('ybirth')
         user_rebirth = self.request.get('yrebirth')
-        user_sex = self.request.get('sex')
+        user_sex = self.request.get('u_sex')
         
         run_query(user_fname, user_lname, user_ybirth, user_rebirth, user_sex)
         
@@ -56,7 +56,7 @@ class SurveyPage(webapp2.RequestHandler):
             'laname' : user_lname,
             'birthy' : user_ybirth,
             'rebirthy' : user_rebirth,
-            'u_sex' : user_sex
+            'sex' : user_sex
         }
         self.redirect('/match')
 
