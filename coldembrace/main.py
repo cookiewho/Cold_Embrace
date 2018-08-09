@@ -19,7 +19,7 @@ def run_query(first_line, second_line, third_line, fourth_line, fifth_line):
     c_user = current_user(frname = first_line, laname = second_line, birthy = third_line, rebirthy = fourth_line, u_sex = fifth_line)
     current_user_input= c_user.put()
     print("&&&&&&&&&&&&&&&&&&&&&&&&&")
-    print current_user_input
+    print current_user_input 
 
     
 class HomePage(webapp2.RequestHandler):
