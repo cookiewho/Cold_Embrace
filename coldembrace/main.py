@@ -15,8 +15,8 @@ the_jinja_env = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
     
-def run_query(first_line, second_line, third_line, fourth_line, fifth_line, sixth_line, seventh_line, eighth_line, ninth_line):
-    c_user = current_user(line1=first_line, line2=second_line, line3=third_line, line4=fourth_line, line5=fifth_line, line6=sixth_line, line7=seventh_line)
+def run_query(first_line, second_line, third_line, fourth_line, fifth_line):
+    c_user = current_user(frname = first_line, laname = second_line, birthy = third_line, rebirthy = fourth_line, u_sex = fifth_line)
     current_user_input= c_user.put()
     print("&&&&&&&&&&&&&&&&&&&&&&&&&")
     print current_user_input
@@ -38,8 +38,8 @@ class HomePage(webapp2.RequestHandler):
     
 class SurveyPage(webapp2.RequestHandler):
     def get(self):
-        survey_template = the_jinja_env.get_template("templates/survey.html")
-        self.response.write(survey_template.render)
+        survey_template = the_jinja_env.get_template('templates/survey.html')
+        self.response.write(survey_template.render())
     
     def post(self):
         survey_template = the_jinja_env.get_template('templates/survey.html')
@@ -48,6 +48,17 @@ class SurveyPage(webapp2.RequestHandler):
         user_ybirth = self.request.get('ybirth')
         user_rebirth = self.request.get('yrebirth')
         user_sex = self.request.get('sex')
+        
+        run_query(user_fname, user_lname, user_ybirth, user_rebirth, user_sex)
+        
+        the_variable_dict = {
+            'frname' : user_fname,
+            'laname' : user_lname,
+            'birthy' : user_ybirth,
+            'rebirthy' : user_rebirth,
+            'u_sex' : user_sex
+        }
+        self.redirect('/match')
 
         
 class ResultsPage(webapp2.RequestHandler):
