@@ -26,15 +26,6 @@ class HomePage(webapp2.RequestHandler):
     def get(self):
         home_template = the_jinja_env.get_template('templates/index.html')
         self.response.write(home_template.render)
-        
-    '''
-    def post(self):
-        isError = False
-        if (isError):
-            self.response.write("Error!")
-        else:
-            self.redirect("/")
-    '''
     
 class SurveyPage(webapp2.RequestHandler):
     def get(self):
@@ -42,8 +33,7 @@ class SurveyPage(webapp2.RequestHandler):
         self.response.write(survey_template.render())
     
     def post(self):
-        #setting values for user
-        survey_template = the_jinja_env.get_template('templates/survey.html')
+
         user_fname = self.request.get('fname')
         user_lname = self.request.get('lname')
         user_ybirth = self.request.get('ybirth')
@@ -63,6 +53,7 @@ class SurveyPage(webapp2.RequestHandler):
         }
         #redirecting to results page
         self.redirect('/results')
+        self.response.write(survey_template.render(the_variable_dict))
 
         
 class ResultsPage(webapp2.RequestHandler):
@@ -86,8 +77,17 @@ class ResultsPage(webapp2.RequestHandler):
         
 class MatchPage(webapp2.RequestHandler):
     def get(self):
-        #about_template = the_jinja_env.get_template('templates/index.html')
-        self.response.write("This is the match page")
+        #run_query(frname, laname, birthy, rebirthy, u_sex)
+
+        the_variable_dict = {
+            'frname' : 'name',
+          #  'laname' : user_lname,
+          #  'birthy' : user_ybirth,
+           # 'rebirthy' : user_rebirth,
+           # 'sex' : 'u_sex'
+        }
+        match_template = the_jinja_env.get_template("templates/match.html")
+        self.response.write(match_template.render(the_variable_dict))
 
 
 
