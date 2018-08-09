@@ -4,12 +4,10 @@
         <title>match</title>
     </head>
     <body>
-        <h2>Your Match!</h2>
+        <h2> congrats {{c_user}}, we found a match!</h2>
     
         <ul>
-            {% for answer in answers %}
-                <li> {{ answer }} </li>
-            {% endfor %}
+                <li> {{ name | safe }} </li>
         </ul>
     </body>
 </html>
