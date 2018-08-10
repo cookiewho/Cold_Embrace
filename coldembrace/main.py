@@ -63,14 +63,14 @@ class ResultsPage(webapp2.RequestHandler):
         name_generator_url = "https://www.behindthename.com/api/random.json?number=6&randomsurname=yes&key=da143179294"
         randomName= urlfetch.fetch(name_generator_url).content
         names_as_json = json.loads(randomName)
-        names = names_as_json['names']
+        name = names_as_json['names']
         print "************"
-        print names
+        print name
         
         #name values being grabbed
         #for name in names:
         the_variable_dict = {
-            'names': names
+            'options': name
         }
     
         
