@@ -81,12 +81,12 @@ class ResultsPage(webapp2.RequestHandler):
         
 class MatchPage(webapp2.RequestHandler):
     def get(self):
-        match_template = the_jinja_env.get_template('templates/match.html')
         #run_query(frname, laname, birthy, rebirthy, u_sex)
         choice = self.request.get('sex')
         the_variable_dict = {
             "preference":choice
         }
+        match_template = the_jinja_env.get_template('templates/match.html')
         self.response.write(match_template.render(the_variable_dict))
 
 
