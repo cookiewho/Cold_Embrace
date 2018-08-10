@@ -13,6 +13,7 @@
 
 .logo {
 	width: 12%; 
+	float: left;
 
 }
 
@@ -60,4 +61,7 @@ body {
 
 h1 {
 	text-align: center;
+	float: inherit;
+	
+	font-size: 400%;
 }
