@@ -1,12 +1,11 @@
 .con {
 	width: 100%; 
-	height: 100%; 
-	
-
+	height: 100%;
 }
 
 .header {
 	width: 100%; 
+	height: 30%;
 	font-family: 'Coiny', cursive;
 	
 }
@@ -18,9 +17,21 @@
 }
 
 .main {
-	margin: 10%;
+	margin-top: 10%;
+	width: 100%;
+	color: #fff;
 }
 
+.mid {
+	width: 60%;
+	text-align: center;
+	
+}
+
+.side {
+	margin: 20%;	
+	height: 100%;
+}
 
 .navbox a {
     float: left;
@@ -29,17 +40,25 @@
     font-size: 17px;
 }
 
+.navbox {
+	width: 100%;
+	background-color: #d8bdeb;
+}
+
 .menuitem {
 	float: left;
 	
-	width: 15%;
+	width: 20%;
 	height:100%;
-	padding: 2% 2%;
+	padding: 1% 1%;
+	
+	background-color: #d8bdeb;
 	
 	text-decoration: none;
 	text-align: center;
 	
 	font-family: 'Coiny', cursive;
+	font-size: 120%;
 
 }
 
@@ -53,15 +72,21 @@
 	text-align: center;
 }
 
+a {
+	color: #ffffff;
+}
+
 body {
-    background-color: #E8E6FA;
+    background-color: #d8bdeb;
     
     font-family: 'Coiny', cursive;
 }
 
-h1 {
+.bighead {
 	text-align: center;
 	float: inherit;
+	
+	color: #ffffff;
 	
 	font-size: 400%;
 }

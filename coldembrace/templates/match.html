@@ -1,17 +1,33 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <meta charset = "utf-8">
+        <meta charset = "utf-8">
         <title>Your Love!</title>
+        <link rel="icon" type="image/png" href="../img/ghosticon.png">
         
         <link rel="stylesheet" href="../css/style.css"> 
+        
+        <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
         
         <audio autoplay>
 			<source src="../music/uwa.mp3" type="audio/mpeg">
 		</audio>
     </head>
     <body>
-        <h1>Your Match</h1>
-        <h2>{{ name | safe }} is interested in</h2> {{ u_sex }} <h2> ghosts. They enjoy </h2>`
+        <div class="con">
+            <div class="header">
+				<img class="logo" src="../img/ghosticon.png">
+				<h1>The Cold Embrace</h1>
+					</br>
+				<div class="navbox">
+					<a class="menuitem" href="/index">HOME</a>
+					<a class="menuitem" href="/survey">Begin Your Journey Today</a>
+				</div>
+				</br>
+			</div>
+                <h1>Your Match</h1>
+                    <img src="../img/ghost.png">
+                <h2>{{ name | safe }} is interested in {{ u_sex }} ghosts. They enjoy </h2>
+        </div>
     </body>
 </html>
