@@ -13,14 +13,13 @@
     </head>
     <body>
         <h2> congrats {{c_user}},we found a match!</h2>
-
-    <form action="post" action = "/match">
+<div class="form">
+    <form method="post">
         {% for choice in options %}
-
             <input type="radio" name='ghost'>{{ choice | safe }}<br>
         {% endfor %}
-         
-        <input type = "submit">
+        <input type = "submit" value = Go!>
       </form>
+      </div>
     </body>
 </html>

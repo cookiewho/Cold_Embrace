@@ -8,6 +8,7 @@ from models import other_user1
 #libraries for APIs
 from google.appengine.api import urlfetch
 import json
+import random.
 
 
 the_jinja_env = jinja2.Environment(
@@ -49,7 +50,7 @@ class SurveyPage(webapp2.RequestHandler):
             'laname' : user_lname,
             'birthy' : user_ybirth,
             'rebirthy' : user_rebirth,
-            'sex' : user_sex
+            'sex' : user_sex,
         }
         #redirecting to results page
         survey_template = the_jinja_env.get_template('templates/results.html')
@@ -59,6 +60,7 @@ class SurveyPage(webapp2.RequestHandler):
         
 class ResultsPage(webapp2.RequestHandler):
     def post(self):
+        survey_template = the_jinja_env.get_template('templates/results.html')
         #getting api info and dictionaries for names
         name_generator_url = "https://www.behindthename.com/api/random.json?number=6&randomsurname=yes&key=da143179294"
         randomName= urlfetch.fetch(name_generator_url).content
@@ -68,24 +70,23 @@ class ResultsPage(webapp2.RequestHandler):
         print name
         
         #name values being grabbed
-        #for name in names:
         the_variable_dict = {
             'options': name
         }
     
         
         #putting names to page
-        results_template = the_jinja_env.get_template("templates/results.html")
+        results_template = the_jinja_env.get_template("templates/match.html")
         self.response.write(results_template.render(the_variable_dict))
         
 class MatchPage(webapp2.RequestHandler):
-    def post(self):
+    def get(self):
+        match_template = the_jinja_env.get_template('templates/match.html')
         #run_query(frname, laname, birthy, rebirthy, u_sex)
-        choice = self.request.get('u_sex')
+        choice = self.request.get('sex')
         the_variable_dict = {
             "preference":choice
         }
-        match_template = the_jinja_env.get_template("templates/match.html")
         self.response.write(match_template.render(the_variable_dict))
 
 
