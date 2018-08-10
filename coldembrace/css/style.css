@@ -1,6 +1,7 @@
 .con {
 	width: 100%; 
 	height: 100%;
+
 }
 
 .header {
@@ -18,20 +19,12 @@
 
 .main {
 	margin-top: 10%;
+	margin-left: 20%;
+	margin-right: 20%;
 	width: 100%;
 	color: #fff;
 }
 
-.mid {
-	width: 60%;
-	text-align: center;
-	
-}
-
-.side {
-	margin: 20%;	
-	height: 100%;
-}
 
 .navbox a {
     float: left;

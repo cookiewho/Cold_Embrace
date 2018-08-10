@@ -8,7 +8,7 @@ from models import other_user1
 #libraries for APIs
 from google.appengine.api import urlfetch
 import json
-import random.
+import random
 
 
 the_jinja_env = jinja2.Environment(

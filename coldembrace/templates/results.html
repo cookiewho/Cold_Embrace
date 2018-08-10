@@ -15,14 +15,38 @@
 		
     </head>
     <body>
-        <h2> congrats {{c_user}},we found a match!</h2>
-<div class="form">
-    <form method="post">
-        {% for choice in options %}
-            <input type="radio" name='ghost'>{{ choice | safe }}<br>
-        {% endfor %}
-        <input type = "submit" value = Go!>
-      </form>
-      </div>
+        <div class="con">
+			<div class="header">
+			
+				<img class="logo" src="../img/ghosticon.png">
+				<h1 class="bighead">The Cold Embrace</h1>
+					</br>
+					
+					<div class="navbox">
+						<a class="menuitem" href="/index">HOME</a>
+						<a class="menuitem" href="/survey">Begin Your Journey Today</a>
+					</div>
+					</br>
+			</div>
+			
+			<div class="main">
+				<div class="side">
+				</div>
+					<div class="mid">
+						<h2> congrats {{c_user}},we found a match!</h2>
+                        <div class="form">
+                            <form method="post">
+                                {% for choice in options %}
+                                    <input type="radio" name='ghost'>{{ choice | safe }}<br>
+                                {% endfor %}
+                                    <input type = "submit" value = Go!>
+                            </form>
+                        </div>
+			       	</div>
+	       		<div class="side">
+				</div>
+            </div>
+            
+		</div>
     </body>
 </html>
