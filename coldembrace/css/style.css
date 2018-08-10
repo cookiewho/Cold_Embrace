@@ -13,6 +13,10 @@
 
 }
 
+.main {
+	margin: 10%;
+}
+
 
 .navbox a {
     float: left;
@@ -35,8 +39,8 @@
 
 
 .menuitem:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: rgb();
+    color: rgb(150, 200, 0);
 }
 
 body {
