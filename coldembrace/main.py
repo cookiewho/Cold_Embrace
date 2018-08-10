@@ -31,7 +31,7 @@ class SurveyPage(webapp2.RequestHandler):
     def get(self):
         survey_template = the_jinja_env.get_template('templates/survey.html')
         self.response.write(survey_template.render())
-    
+
     def post(self):
 
         user_fname = self.request.get('fname')
@@ -58,26 +58,28 @@ class SurveyPage(webapp2.RequestHandler):
 
         
 class ResultsPage(webapp2.RequestHandler):
-    def get(self):
+    def post(self):
         #getting api info and dictionaries for names
         name_generator_url = "https://www.behindthename.com/api/random.json?number=6&randomsurname=yes&key=da143179294"
         randomName= urlfetch.fetch(name_generator_url).content
-        names = json.loads(randomName)
-        
+        names_as_json = json.loads(randomName)
+        names = names_as_json['names']
+        print "************"
+        print names
         
         #name values being grabbed
-        for name in names:
-            the_variable_dict = {
-                'name': names
-            }
-        
+        #for name in names:
+        the_variable_dict = {
+            'names': names
+        }
+    
         
         #putting names to page
         results_template = the_jinja_env.get_template("templates/results.html")
         self.response.write(results_template.render(the_variable_dict))
         
 class MatchPage(webapp2.RequestHandler):
-    def get(self):
+    def post(self):
         #run_query(frname, laname, birthy, rebirthy, u_sex)
         choice = self.request.get('u_sex')
         the_variable_dict = {

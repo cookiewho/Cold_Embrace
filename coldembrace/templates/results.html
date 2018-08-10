@@ -12,9 +12,12 @@
     </head>
     <body>
         <h2> congrats {{c_user}}, we found a match!</h2>
-    
-        <ul>
-                <li> {{ name | safe }} </li>
-        </ul>
+    <form action="post" action = "/match">
+        {% for choice in names %}
+            <input type="radio" name='ghost'>{{ choice | safe }}<br>
+        {% endfor %}
+         
+        <input type = "submit">
+      </form>
     </body>
 </html>
