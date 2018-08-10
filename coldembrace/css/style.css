@@ -2,7 +2,7 @@
 	width: 100%; 
 	height: 100%; 
 	
-	font-family: 'Coiny', cursive;
+
 }
 
 .header {
@@ -46,6 +46,10 @@
 .menuitem:hover {
     background-color: rgb(190, 140, 230);
     color: rgb(150, 0, 200);
+}
+
+.form {
+	text-align: center;
 }
 
 body {
