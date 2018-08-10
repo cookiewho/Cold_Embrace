@@ -1,6 +1,6 @@
 from google.appengine.ext import ndb
 
-class current_user(ndb.Model):
+class Current_user(ndb.Model):
     frname = ndb.StringProperty(required=True)
     laname = ndb.StringProperty(required=True)
     birthy = ndb.StringProperty(required=True)

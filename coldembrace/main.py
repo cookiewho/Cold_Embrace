@@ -2,7 +2,7 @@ import webapp2
 from random import shuffle
 import jinja2
 import os
-from models import current_user
+from models import Current_user
 from models import other_user1
 
 #libraries for APIs
@@ -16,7 +16,7 @@ the_jinja_env = jinja2.Environment(
     autoescape=True)
     
 def run_query(first_line, second_line, third_line, fourth_line, fifth_line):
-    c_user = current_user(frname = first_line, laname = second_line, birthy = third_line, rebirthy = fourth_line, u_sex = fifth_line)
+    c_user = Current_user(frname = first_line, laname = second_line, birthy = third_line, rebirthy = fourth_line, u_sex = fifth_line)
     current_user_input= c_user.put()
     print("&&&&&&&&&&&&&&&&&&&&&&&&&")
     print current_user_input 
@@ -52,7 +52,8 @@ class SurveyPage(webapp2.RequestHandler):
             'sex' : user_sex
         }
         #redirecting to results page
-        self.redirect('/results')
+        survey_template = the_jinja_env.get_template('templates/results.html')
+
         self.response.write(survey_template.render(the_variable_dict))
 
         
@@ -78,13 +79,9 @@ class ResultsPage(webapp2.RequestHandler):
 class MatchPage(webapp2.RequestHandler):
     def get(self):
         #run_query(frname, laname, birthy, rebirthy, u_sex)
-
+        choice = self.request.get('u_sex')
         the_variable_dict = {
-            'frname' : 'name',
-          #  'laname' : user_lname,
-          #  'birthy' : user_ybirth,
-           # 'rebirthy' : user_rebirth,
-           # 'sex' : 'u_sex'
+            "preference":choice
         }
         match_template = the_jinja_env.get_template("templates/match.html")
         self.response.write(match_template.render(the_variable_dict))
