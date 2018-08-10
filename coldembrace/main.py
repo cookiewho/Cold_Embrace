@@ -25,7 +25,7 @@ def run_query(first_line, second_line, third_line, fourth_line, fifth_line):
 class HomePage(webapp2.RequestHandler):
     def get(self):
         home_template = the_jinja_env.get_template('templates/index.html')
-        self.response.write(home_template.render)
+        self.response.write(home_template.render())
     
 class SurveyPage(webapp2.RequestHandler):
     def get(self):

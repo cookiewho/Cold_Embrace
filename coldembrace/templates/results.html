@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset = "utf-8">
         <title>Pick Your Ghost</title>
         
         <link rel="stylesheet" href="../css/style.css"> 
@@ -11,8 +12,8 @@
 		
     </head>
     <body>
-        <h2> congrats {{c_user}}, we found a match!</h2>
-    <form action="post action">
+        <h2> congrats {{c_user}},we found a match!</h2>
+    <form action="post">
         {% for choice in names %}
             <input type="radio" name='ghost'>{{ choice | safe }}<br>
         {% endfor %}
